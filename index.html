@@ -164,7 +164,8 @@
             white-space: nowrap;
             letter-spacing: -2px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            gap: 20px;
         }
 
         @keyframes glitch {
@@ -506,7 +507,7 @@
         <h1>UNDERGROUND</h1>
         <ul id="nav-links">
             <li><a href="#home" onclick="toggleMenu()">Home</a></li>
-            <li><a href="links.html">Links</a></li>
+            <li><a href="links.html" onclick="toggleMenu()">Links</a></li>
             <li><a href="#drops" onclick="toggleMenu()">Drops</a></li>
             <li><a href="#manifesto" onclick="toggleMenu()">Manifesto</a></li>
             <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
