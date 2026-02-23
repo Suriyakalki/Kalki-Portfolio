@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SURIYA KALKI • LINKS</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ================= THEME ================= */
+        :root {
+            --bg: #000;
+            --text: #fff;
+            --red: #ff1a1a;
+            --blue: #0044ff;
+            --card: #111;
+            --border: #fff;
+        }
+
+        body.light {
+            --bg: #fff;
+            --text: #000;
+            --card: #eee;
+            --border: #000;
+        }
+
+        /* ================= GLOBAL ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Oswald', sans-serif;
+            overflow-x: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        /* Noise background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.08;
+            pointer-events: none;
+            animation: noise 0.4s infinite;
+            z-index: 0;
+        }
+
+        @keyframes noise {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(-2%, 1%);
+            }
+
+            50% {
+                transform: translate(1%, -2%);
+            }
+
+            75% {
+                transform: translate(-1%, 2%);
+            }
+
+            100% {
+                transform: translate(2%, 1%);
+            }
+        }
+
+        /* ================= NAV/TOGGLE ================= */
+        .top-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+
+        .toggle {
+            cursor: pointer;
+            padding: 8px 16px;
+            border: 3px solid var(--border);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            background: var(--bg);
+        }
+
+        .home-link {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: bold;
+            text-transform: uppercase;
+            border: 3px solid var(--border);
+            padding: 8px 16px;
+            z-index: 10;
+        }
+
+        /* ================= PROFILE ================= */
+        .profile {
+            text-align: center;
+            margin-bottom: 50px;
+            z-index: 1;
+        }
+
+        .profile h1 {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .glitch {
+            position: relative;
+            display: inline-block;
+            animation: glitch 1s infinite;
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg);
+        }
+
+        .glitch::before {
+            left: -3px;
+            color: var(--blue);
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            z-index: -1;
+        }
+
+        .glitch::after {
+            left: 3px;
+            color: var(--red);
+            clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+            z-index: -2;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+
+            20% {
+                transform: translate(-2px, 2px);
+            }
+
+            40% {
+                transform: translate(2px, -2px);
+            }
+
+            60% {
+                transform: translate(-1px, 1px);
+            }
+
+            80% {
+                transform: translate(1px, -1px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        .profile p {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* ================= LINKS ================= */
+        .links-container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 1;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: var(--card);
+            border: 4px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            transition: 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card:nth-child(odd) {
+            transform: rotate(-1deg);
+        }
+
+        .link-card:nth-child(even) {
+            transform: rotate(1.5deg);
+        }
+
+        .link-card:hover {
+            background: var(--red);
+            border-color: var(--blue);
+            transform: scale(1.05) rotate(0deg) skew(-2deg);
+            color: #fff;
+        }
+
+        .link-card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.4s;
+        }
+
+        .link-card:hover::after {
+            left: 100%;
+        }
+
+        .streaming-header {
+            margin: 40px 0 20px 0;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            border-bottom: 6px solid var(--red);
+            align-self: flex-start;
+        }
+
+        .social-header {
+            margin: 40px 0 20px 0;
+            font-family: 'Anton', sans-serif;
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            border-bottom: 6px solid var(--blue);
+            align-self: flex-start;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            opacity: 0.7;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 480px) {
+            body {
+                padding: 80px 15px 40px 15px;
+            }
+
+            .link-card {
+                padding: 15px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="index.html" class="home-link">Home</a>
+
+    <div class="top-controls">
+        <div class="toggle" onclick="toggleMode()">Mode</div>
+    </div>
+
+    <!-- PROFILE -->
+    <section class="profile">
+        <h1>
+            <span class="glitch" data-text="SURIYA">SURIYA</span><br>
+            <span class="glitch" data-text="KALKI">KALKI</span>
+        </h1>
+        <p>Distorted Underground</p>
+    </section>
+
+    <!-- LINKS -->
+    <div class="links-container">
+
+        <h3 class="streaming-header">Streaming</h3>
+        <a href="#" class="link-card">Spotify</a>
+        <a href="#" class="link-card">Apple Music</a>
+        <a href="#" class="link-card">SoundCloud</a>
+        <a href="#" class="link-card">YouTube Music</a>
+
+        <h3 class="social-header">Connect</h3>
+        <a href="#" class="link-card">Instagram</a>
+        <a href="#" class="link-card">Twitter / X</a>
+        <a href="#" class="link-card">Discord</a>
+        <a href="#" class="link-card">Contact Email</a>
+
+    </div>
+
+    <footer>
+        © 2026 UNDERGROUND — NO MERCY.
+    </footer>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("light");
+        }
+    </script>
+
+</body>
+
+</html>
